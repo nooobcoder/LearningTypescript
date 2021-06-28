@@ -1,10 +1,45 @@
-function add(n1: number, n2: number) {
-	if (typeof n1 !== "number" || typeof n2 !== "number")
-		throw new Error("Incorrect Input!");
-	return n1 + n2;
+// const person: {
+//   name: string;
+//   age: number;
+// } = {
+/* const person: {
+  name: string;
+  age: number;
+  hobbies: string[];
+  role: [number, string];
+} = {
+  name: 'Ankur',
+  age: 30,
+  hobbies: ['Sports', 'Cooking'],
+  role: [2, 'author']
+}; */
+
+enum ROLES {
+	ADMIN,
+	READ_ONLY,
+	AUTHOR,
 }
 
-const number1 = '5';
-const number2 = 2.8;
+const person = {
+	name: "Ankur",
+	age: 30,
+	hobbies: ["Sports", "Cooking"],
+	role: ROLES.ADMIN,
+};
 
-console.log(add(number1, number2));
+// person.role.push('admin');
+// person.role[1] = 10;
+
+// person.role = [0, 'admin', 'user'];
+
+let favoriteActivities: string[];
+favoriteActivities = ["Sports"];
+
+console.log(person.name);
+
+for (const hobby of person.hobbies) {
+	console.log(hobby.toUpperCase());
+	// console.log(hobby.map()); // !!! ERROR !!!
+}
+
+if (person.role === ROLES.ADMIN) console.log("is admin");

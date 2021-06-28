@@ -7,8 +7,7 @@
 			"request": "launch",
 			"cwd": "${workspaceRoot}",
 			"runtimeExecutable": "npm",
-			"runtimeArgs": ["run-script", "tsc"],
-			"port": 5858
+			"runtimeArgs": ["run-script", "tsc"]
 		}
 	]
 }
