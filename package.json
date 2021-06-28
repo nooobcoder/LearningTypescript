@@ -1,0 +1,15 @@
+{
+	"name": "typescripttutorial",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"tsc": "./node_modules/typescript/bin/tsc -p ."
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"typescript": "^4.3.4"
+	}
+}
