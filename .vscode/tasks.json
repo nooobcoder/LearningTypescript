@@ -7,7 +7,7 @@
 			"option": "watch",
 			"problemMatcher": ["$tsc-watch"],
 			"group": "build",
-			"label": "Transcompile on save (2) [INSIDE]"
+			"label": "Transcompile Typescript"
 		}
 	]
 }

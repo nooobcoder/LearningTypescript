@@ -1,11 +1,11 @@
 {
 	"compilerOptions": {
-		"target": "ESNext",
-		"module": "ESNext",
-		"lib": ["ESNext", "DOM"],
+		"target": "es5",
+		"module": "commonjs",
+		// "lib": ["ESNext", "DOM"],
 		"moduleResolution": "Node",
 		"strict": true,
-		"sourceMap": false,
+		"sourceMap": true,
 		"resolveJsonModule": true,
 		"esModuleInterop": true,
 		"noEmit": false,
