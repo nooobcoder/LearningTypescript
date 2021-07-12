@@ -1,13 +1,19 @@
 "use strict";
 var Department = /** @class */ (function () {
-    function Department(n) {
+    function Department(id, name) {
+        this.id = id;
+        this.name = name;
+        // private id: string;
+        // private name: string;
         this.employees = [];
-        this.name = n;
+        // this.id = id;
+        // this.name = n;
     }
     Department.prototype.describe = function () {
-        console.log("Department: " + this.name);
+        console.log("Department (" + this.id + "): " + this.name);
     };
     Department.prototype.addEmployee = function (employee) {
+        // validation etc
         this.employees.push(employee);
     };
     Department.prototype.printEmployeeInformation = function () {
@@ -16,13 +22,13 @@ var Department = /** @class */ (function () {
     };
     return Department;
 }());
-var obj = new Department("Ankur");
-obj.addEmployee("Ankur");
-obj.addEmployee("Paul");
-// obj.employees[2] = "Anna";  // Cannot be done when the employees array is private
-obj.describe();
-obj.printEmployeeInformation();
-/* const objCopy = { describe: obj.describe };
-objCopy.describe;
- */
+var accounting = new Department("d1", "Accounting");
+accounting.addEmployee("Ankur");
+accounting.addEmployee("Paul");
+// accounting.employees[2] = 'Anna';
+accounting.describe();
+accounting.name = "NEW NAME";
+accounting.printEmployeeInformation();
+// const accountingCopy = { name: 'DUMMY', describe: accounting.describe };
+// accountingCopy.describe();
 //# sourceMappingURL=main.js.map

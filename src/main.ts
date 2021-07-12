@@ -1,16 +1,19 @@
 class Department {
-	name: string;
+	// private id: string;
+	// private name: string;
 	private employees: string[] = [];
 
-	constructor(n: string) {
-		this.name = n;
+	constructor(private readonly id: string, public name: string) {
+		// this.id = id;
+		// this.name = n;
 	}
 
 	describe(this: Department) {
-		console.log("Department: " + this.name);
+		console.log(`Department (${this.id}): ${this.name}`);
 	}
 
 	addEmployee(employee: string) {
+		// validation etc
 		this.employees.push(employee);
 	}
 
@@ -20,16 +23,17 @@ class Department {
 	}
 }
 
-const obj = new Department("Ankur");
+const accounting = new Department("d1", "Accounting");
 
-obj.addEmployee("Ankur");
-obj.addEmployee("Paul");
+accounting.addEmployee("Ankur");
+accounting.addEmployee("Paul");
 
-// obj.employees[2] = "Anna";  // Cannot be done when the employees array is private
+// accounting.employees[2] = 'Anna';
 
-obj.describe();
-obj.printEmployeeInformation();
+accounting.describe();
+accounting.name = "NEW NAME";
+accounting.printEmployeeInformation();
 
-/* const objCopy = { describe: obj.describe };
-objCopy.describe;
- */
+// const accountingCopy = { name: 'DUMMY', describe: accounting.describe };
+
+// accountingCopy.describe();
