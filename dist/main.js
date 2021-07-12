@@ -16,14 +16,19 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var Department = /** @class */ (function () {
     function Department(id, name) {
+        // this.id = id;
+        // this.name = n;
         this.id = id;
         this.name = name;
         // private readonly id: string;
         // private name: string;
         this.employees = [];
-        // this.id = id;
-        // this.name = n;
+        // this.fiscalYear; // This shall not work, being static in nature
+        console.log(Department.fiscalYear);
     }
+    Department.createEmployee = function (name) {
+        return { name: name };
+    };
     Department.prototype.describe = function () {
         console.log("Department (" + this.id + "): " + this.name);
     };
@@ -36,6 +41,7 @@ var Department = /** @class */ (function () {
         console.log(this.employees.length);
         console.log(this.employees);
     };
+    Department.fiscalYear = 2020;
     return Department;
 }());
 var ITDepartment = /** @class */ (function (_super) {
@@ -83,6 +89,9 @@ var AccountingDepartment = /** @class */ (function (_super) {
     };
     return AccountingDepartment;
 }(Department));
+var employee1 = Department.createEmployee("Ankur");
+console.log(employee1);
+console.log(Department.fiscalYear);
 var it = new ITDepartment("d1", ["Max"]);
 it.addEmployee("Max");
 it.addEmployee("Manu");
