@@ -1,7 +1,7 @@
 class Department {
-	// private id: string;
+	// private readonly id: string;
 	// private name: string;
-	private employees: string[] = [];
+	protected employees: string[] = [];
 
 	constructor(private readonly id: string, public name: string) {
 		// this.id = id;
@@ -14,6 +14,7 @@ class Department {
 
 	addEmployee(employee: string) {
 		// validation etc
+		// this.id = 'd2';
 		this.employees.push(employee);
 	}
 
@@ -23,15 +24,72 @@ class Department {
 	}
 }
 
-const accounting = new Department("d1", "Accounting");
+class ITDepartment extends Department {
+	admins: string[];
+	constructor(id: string, admins: string[]) {
+		super(id, "IT");
+		this.admins = admins;
+	}
+}
 
-accounting.addEmployee("Ankur");
-accounting.addEmployee("Paul");
+class AccountingDepartment extends Department {
+	private lastReport: string;
 
-// accounting.employees[2] = 'Anna';
+	// Getters use a 'get' keyword to be distinguised from normal functions.
+	get mostRecentReport() {
+		return this.lastReport ? this.lastReport : "No report found.";
+	}
 
-accounting.describe();
-accounting.name = "NEW NAME";
+	set mostRecentReport(newValue: string) {
+		if (!newValue) throw new Error("Please pass in a valid value.");
+		this.addReport(newValue);
+	}
+
+	constructor(id: string, private reports: string[]) {
+		super(id, "Accounting");
+		this.lastReport = reports[0];
+	}
+
+	addEmployee(name: string) {
+		if (name === "Max") {
+			return;
+		}
+		this.employees.push(name);
+	}
+
+	addReport(text: string) {
+		this.reports.push(text);
+		this.lastReport = text;
+	}
+
+	printReports() {
+		console.log(this.reports);
+	}
+}
+
+const it = new ITDepartment("d1", ["Max"]);
+
+it.addEmployee("Max");
+it.addEmployee("Manu");
+
+// it.employees[2] = 'Anna';
+
+it.describe();
+it.name = "NEW NAME";
+it.printEmployeeInformation();
+
+console.log(it);
+
+const accounting = new AccountingDepartment("d2", []);
+
+accounting.addReport("Something report.");
+accounting.mostRecentReport = "Year End Report";
+console.log(accounting.mostRecentReport);
+
+accounting.addEmployee("Max");
+accounting.addEmployee("Manu");
+
+accounting.printReports();
 accounting.printEmployeeInformation();
 
 // const accountingCopy = { name: 'DUMMY', describe: accounting.describe };
