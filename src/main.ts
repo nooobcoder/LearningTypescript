@@ -42,6 +42,7 @@ class ITDepartment extends Department {
 
 class AccountingDepartment extends Department {
 	private lastReport: string;
+	private static instance: AccountingDepartment;
 
 	// Getters use a 'get' keyword to be distinguised from normal functions.
 	get mostRecentReport() {
@@ -53,7 +54,13 @@ class AccountingDepartment extends Department {
 		this.addReport(newValue);
 	}
 
-	constructor(id: string, private reports: string[]) {
+	static getInstance() {
+		if (AccountingDepartment.instance) return this.instance;
+		AccountingDepartment.instance = new AccountingDepartment("d2", []);
+		return this.instance;
+	}
+
+	private constructor(id: string, private reports: string[]) {
 		super(id, "Accounting");
 		this.lastReport = reports[0];
 	}
@@ -92,7 +99,9 @@ it.printEmployeeInformation();
 
 console.log(it);
 
-const accounting = new AccountingDepartment("d2", []);
+const accounting = AccountingDepartment.getInstance();
+const accounting2 = AccountingDepartment.getInstance();
+console.log(accounting, accounting2);
 
 accounting.addReport("Something report.");
 accounting.mostRecentReport = "Year End Report";

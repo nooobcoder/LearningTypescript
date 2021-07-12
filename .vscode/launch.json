@@ -15,6 +15,7 @@
 			"request": "launch",
 			"cwd": "${workspaceRoot}",
 			"runtimeExecutable": "npm",
+			"console": "integratedTerminal",
 			"runtimeArgs": ["run-script", "nodemon"]
 		}
 	]
