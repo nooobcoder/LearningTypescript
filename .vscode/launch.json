@@ -8,6 +8,15 @@
 			"cwd": "${workspaceRoot}",
 			"runtimeExecutable": "npm",
 			"runtimeArgs": ["run-script", "tsc"]
+		},
+		{
+			"type": "node",
+			"name": "nodemon",
+			"request": "launch",
+			"cwd": "${workspaceRoot}",
+			"runtimeExecutable": "npm",
+			"console": "integratedTerminal",
+			"runtimeArgs": ["run-script", "nodemon"]
 		}
 	]
 }
