@@ -4,12 +4,16 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"tsc": "./node_modules/typescript/bin/tsc -p ."
+		"tsc": "./node_modules/typescript/bin/tsc -p .",
+		"nodemon": "nodemon ./dist/main.js"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
 		"typescript": "^4.3.4"
+	},
+	"dependencies": {
+		"nodemon": "^2.0.12"
 	}
 }
