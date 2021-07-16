@@ -16,6 +16,52 @@ const e1: ElevatedEmployee = {
 	startDate: new Date(),
 };
 
-type Combinale = string | number;
+type Combinable = string | number;
 type Numeric = number | boolean;
-type Universal = Combinale | Numeric;
+type Universal = Combinable | Numeric;
+
+const add = (n1: Combinable, n2: Combinable) => {
+	if (typeof n1 === "string" || typeof n2 === "string")
+		return n1.toString() + n2.toString();
+	else return n1 + n2;
+};
+
+type UnknownEmployee = Employee | Admin;
+
+// Function to portray type guards in TypeScript
+const printEmployeeInformation = (emp: UnknownEmployee) => {
+	console.log("Name: " + emp.name);
+	if ("privileges" in emp) console.log("Privileges: " + emp.privileges);
+	if ("startDate" in emp) console.log("Start Date: " + emp.startDate);
+};
+
+printEmployeeInformation({ name: "Ankur Paul", privileges: ["administrator"] });
+
+class Car {
+	drive(): void {
+		console.log("Driving a car...");
+	}
+}
+
+class Truck {
+	drive(): void {
+		console.log("Driving a truck...");
+	}
+
+	loadCargo(amount: number): void {
+		console.log("Loading cargo..." + amount + " onto the truck.");
+	}
+}
+
+type Vehicle = Car | Truck;
+
+// Another sample of type guard.
+const useVehicle = (vehicle: Vehicle) => {
+	vehicle.drive();
+	if (vehicle instanceof Truck) vehicle.loadCargo(200); // instanceof is another keyword for type guard.
+};
+
+const v1 = new Car();
+useVehicle(v1);
+const v2 = new Truck();
+useVehicle(v2);
