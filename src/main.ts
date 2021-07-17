@@ -8,3 +8,14 @@ console.log(names[0].split(" "));
 // 	}, 2000);
 // });
 // promise.then((data) => data.split(" "));
+
+// Creating custom generic functions helps us to generate better autocompletion
+const merge = <T, U>(objA: T, objB: U): T & U => {
+	return { ...objA, ...objB }; // Merging the two objects by using the spread operator
+};
+const mergedObj = merge<{ name: string; hobbies: string[] }, { age: number }>(
+	{ name: "Ankur", hobbies: ["Sports"] },
+	{ age: 21 }
+);
+const mergedObj2 = merge({ name: "Andrew" }, { age: 30 });
+console.log(mergedObj.name);
