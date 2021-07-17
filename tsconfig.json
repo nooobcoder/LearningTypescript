@@ -4,6 +4,7 @@
 		"module": "es6",
 		// "lib": ["ESNext", "DOM"],
 		"moduleResolution": "Node",
+		"experimentalDecorators": true,
 		"strict": true,
 		"sourceMap": true,
 		"resolveJsonModule": true,
