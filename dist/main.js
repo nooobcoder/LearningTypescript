@@ -14,5 +14,6 @@ const merge = (objA, objB) => {
 };
 const mergedObj = merge({ name: "Ankur", hobbies: ["Sports"] }, { age: 21 });
 const mergedObj2 = merge({ name: "Andrew" }, { age: 30 });
-console.log(mergedObj.name);
+console.log(mergedObj);
+// Working with constraints
 //# sourceMappingURL=main.js.map

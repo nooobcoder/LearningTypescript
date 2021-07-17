@@ -18,4 +18,6 @@ const mergedObj = merge<{ name: string; hobbies: string[] }, { age: number }>(
 	{ age: 21 }
 );
 const mergedObj2 = merge({ name: "Andrew" }, { age: 30 });
-console.log(mergedObj.name);
+console.log(mergedObj);
+
+// Working with constraints
