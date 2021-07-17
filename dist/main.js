@@ -48,4 +48,18 @@ var v1 = new Car();
 useVehicle(v1);
 var v2 = new Truck();
 useVehicle(v2);
+// Example of discriminated union type https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#discriminating-unions
+var moveAnimal = function (animal) {
+    var speed = null;
+    switch (animal.type) {
+        case "bird":
+            speed = animal.flyingSpeed;
+            break;
+        case "horse":
+            speed = animal.runningSpeed;
+            break;
+    }
+    console.log("Moving with speed: " + speed);
+};
+moveAnimal({ type: "bird", flyingSpeed: 10 });
 //# sourceMappingURL=main.js.map

@@ -65,3 +65,30 @@ const v1 = new Car();
 useVehicle(v1);
 const v2 = new Truck();
 useVehicle(v2);
+
+interface Bird {
+	type: "bird";
+	flyingSpeed: number;
+}
+
+interface Horse {
+	type: "horse";
+	runningSpeed: number;
+}
+
+type Animal = Bird | Horse;
+
+// Example of discriminated union type https://www.typescriptlang.org/docs/handbook/unions-and-intersections.html#discriminating-unions
+const moveAnimal = (animal: Animal) => {
+	let speed = null;
+	switch (animal.type) {
+		case "bird":
+			speed = animal.flyingSpeed;
+			break;
+		case "horse":
+			speed = animal.runningSpeed;
+			break;
+	}
+	console.log("Moving with speed: " + speed);
+};
+moveAnimal({ type: "bird", flyingSpeed: 10 });
