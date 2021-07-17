@@ -20,4 +20,12 @@ const constraint = (a) => {
     // extends ... makes the constraint to check the type of the object
     console.log(a);
 };
+const countAndDescribe = (element) => {
+    let descriptionText = "Got no value";
+    if (element.length > 0)
+        descriptionText = `Got a value of ${element.length} element(s)`;
+    return [element, descriptionText];
+};
+console.log(countAndDescribe("Hi There!"));
+console.log(countAndDescribe(["Sports", "Cooking"]));
 //# sourceMappingURL=main.js.map

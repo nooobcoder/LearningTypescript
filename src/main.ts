@@ -25,3 +25,17 @@ const constraint = <T extends object>(a: T) => {
 	// extends ... makes the constraint to check the type of the object
 	console.log(a);
 };
+
+// Count and print
+interface Lengthy {
+	length: number;
+}
+
+const countAndDescribe = <T extends Lengthy>(element: T): [T, string] => {
+	let descriptionText = "Got no value";
+	if (element.length > 0)
+		descriptionText = `Got a value of ${element.length} element(s)`;
+	return [element, descriptionText];
+};
+console.log(countAndDescribe("Hi There!"));
+console.log(countAndDescribe(["Sports", "Cooking"]));
