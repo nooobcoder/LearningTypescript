@@ -1,4 +1,5 @@
 "use strict";
+var _a;
 var e1 = {
     name: "Max",
     privileges: ["create-server"],
@@ -71,4 +72,11 @@ var errorBag = {
     email: "Not a valid email!",
     username: "Must start with a capital character!",
 };
+// Demo of optional chaining
+var fetchedUserData = {
+    id: "u1",
+    name: "Ankur",
+    job: { title: "CEO", description: "My own company" },
+};
+console.log((_a = fetchedUserData === null || fetchedUserData === void 0 ? void 0 : fetchedUserData.job) === null || _a === void 0 ? void 0 : _a.title);
 //# sourceMappingURL=main.js.map

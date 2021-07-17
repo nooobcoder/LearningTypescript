@@ -110,3 +110,11 @@ const errorBag: ErrorContainer = {
 	email: "Not a valid email!",
 	username: "Must start with a capital character!",
 };
+
+// Demo of optional chaining
+const fetchedUserData = {
+	id: "u1",
+	name: "Ankur",
+	job: { title: "CEO", description: "My own company" },
+};
+console.log(fetchedUserData?.job?.title);
