@@ -33,4 +33,26 @@ const extractAndConvert = (obj, key) => {
     return obj[key];
 };
 console.log(extractAndConvert({ name: "Julia" }, "name"));
+// Generic classes
+class DataStorage {
+    constructor() {
+        this.data = [];
+    }
+    addItem(item) {
+        this.data.push(item);
+    }
+    removeItem(item) {
+        if (this.data.indexOf(item) > -1)
+            this.data.splice(this.data.indexOf(item), 1);
+    }
+    getItems() {
+        return this.data.map((item) => item);
+    }
+}
+const textStorage = new DataStorage();
+textStorage.addItem("Max");
+textStorage.addItem("Ankur");
+textStorage.removeItem("Ankur");
+console.log(textStorage.getItems());
+const numberStorage = new DataStorage();
 //# sourceMappingURL=main.js.map

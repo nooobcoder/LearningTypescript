@@ -48,3 +48,28 @@ const extractAndConvert = <T extends object, U extends keyof T>(
 	return obj[key];
 };
 console.log(extractAndConvert({ name: "Julia" }, "name"));
+
+// Generic classes
+class DataStorage<T extends string | number | boolean> {
+	private data: T[] = [];
+
+	addItem(item: T) {
+		this.data.push(item);
+	}
+
+	removeItem(item: T) {
+		if (this.data.indexOf(item) > -1)
+			this.data.splice(this.data.indexOf(item), 1);
+	}
+
+	getItems() {
+		return this.data.map((item) => item);
+	}
+}
+const textStorage = new DataStorage<string>();
+textStorage.addItem("Max");
+textStorage.addItem("Ankur");
+textStorage.removeItem("Ankur");
+console.log(textStorage.getItems());
+
+const numberStorage = new DataStorage<number>();
