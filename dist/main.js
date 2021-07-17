@@ -62,4 +62,13 @@ var moveAnimal = function (animal) {
     console.log("Moving with speed: " + speed);
 };
 moveAnimal({ type: "bird", flyingSpeed: 10 });
+// const userInputElement = <HTMLInputElement>document.getElementById('user-input')!;
+var userInputElement = document.getElementById("user-input");
+if (userInputElement) {
+    userInputElement.value = "Hi there!";
+}
+var errorBag = {
+    email: "Not a valid email!",
+    username: "Must start with a capital character!",
+};
 //# sourceMappingURL=main.js.map

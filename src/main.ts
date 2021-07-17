@@ -92,3 +92,21 @@ const moveAnimal = (animal: Animal) => {
 	console.log("Moving with speed: " + speed);
 };
 moveAnimal({ type: "bird", flyingSpeed: 10 });
+
+// const userInputElement = <HTMLInputElement>document.getElementById('user-input')!;
+const userInputElement = document.getElementById("user-input");
+
+if (userInputElement) {
+	(userInputElement as HTMLInputElement).value = "Hi there!";
+}
+
+// Index Properties https://www.typescriptlang.org/docs/handbook/advanced-types.html#index-types
+interface ErrorContainer {
+	// {email:'Not a valid email', username: 'Must start with a character}
+	[prop: string]: string; // This is an index property
+}
+
+const errorBag: ErrorContainer = {
+	email: "Not a valid email!",
+	username: "Must start with a capital character!",
+};
