@@ -28,4 +28,9 @@ const countAndDescribe = (element) => {
 };
 console.log(countAndDescribe("Hi There!"));
 console.log(countAndDescribe(["Sports", "Cooking"]));
+// The keyof constraint
+const extractAndConvert = (obj, key) => {
+    return obj[key];
+};
+console.log(extractAndConvert({ name: "Julia" }, "name"));
 //# sourceMappingURL=main.js.map
