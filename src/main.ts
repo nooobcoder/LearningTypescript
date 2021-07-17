@@ -21,3 +21,7 @@ const mergedObj2 = merge({ name: "Andrew" }, { age: 30 });
 console.log(mergedObj);
 
 // Working with constraints
+const constraint = <T extends object>(a: T) => {
+	// extends ... makes the constraint to check the type of the object
+	console.log(a);
+};

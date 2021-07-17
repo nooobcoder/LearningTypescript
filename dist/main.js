@@ -16,4 +16,8 @@ const mergedObj = merge({ name: "Ankur", hobbies: ["Sports"] }, { age: 21 });
 const mergedObj2 = merge({ name: "Andrew" }, { age: 30 });
 console.log(mergedObj);
 // Working with constraints
+const constraint = (a) => {
+    // extends ... makes the constraint to check the type of the object
+    console.log(a);
+};
 //# sourceMappingURL=main.js.map
