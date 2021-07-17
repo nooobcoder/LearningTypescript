@@ -94,11 +94,11 @@ const moveAnimal = (animal: Animal) => {
 moveAnimal({ type: "bird", flyingSpeed: 10 });
 
 // const userInputElement = <HTMLInputElement>document.getElementById('user-input')!;
-const userInputElement = document.getElementById("user-input");
+// const userInputElement = document.getElementById("user-input");
 
-if (userInputElement) {
+/* if (userInputElement) {
 	(userInputElement as HTMLInputElement).value = "Hi there!";
-}
+} */
 
 // Index Properties https://www.typescriptlang.org/docs/handbook/advanced-types.html#index-types
 interface ErrorContainer {
@@ -118,3 +118,8 @@ const fetchedUserData = {
 	job: { title: "CEO", description: "My own company" },
 };
 console.log(fetchedUserData?.job?.title);
+
+// Demo of nullish coalescing
+const userInput = "";
+const storedData = userInput ?? "DEFAULT"; // If value is only null or undefined then use the fallback value
+console.log(storedData);

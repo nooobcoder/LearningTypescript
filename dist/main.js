@@ -63,11 +63,6 @@ var moveAnimal = function (animal) {
     console.log("Moving with speed: " + speed);
 };
 moveAnimal({ type: "bird", flyingSpeed: 10 });
-// const userInputElement = <HTMLInputElement>document.getElementById('user-input')!;
-var userInputElement = document.getElementById("user-input");
-if (userInputElement) {
-    userInputElement.value = "Hi there!";
-}
 var errorBag = {
     email: "Not a valid email!",
     username: "Must start with a capital character!",
@@ -79,4 +74,8 @@ var fetchedUserData = {
     job: { title: "CEO", description: "My own company" },
 };
 console.log((_a = fetchedUserData === null || fetchedUserData === void 0 ? void 0 : fetchedUserData.job) === null || _a === void 0 ? void 0 : _a.title);
+// Demo of nullish coalescing
+var userInput = "";
+var storedData = userInput !== null && userInput !== void 0 ? userInput : "DEFAULT"; // If value is only null or undefined then use the fallback value
+console.log(storedData);
 //# sourceMappingURL=main.js.map
