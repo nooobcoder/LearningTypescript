@@ -7,11 +7,20 @@ const Logger = (logString: string) => {
 	};
 };
 
-@Logger("LOGGING-PERSON")
+const withTemplate = (template: string, hookId: string) => {
+	return function (_: Function) {
+		const hookElement = document.getElementById(hookId);
+		if (hookElement) hookElement.innerHTML = template;
+	};
+};
+
+// @Logger("LOGGING-PERSON")
+@withTemplate("<h1>My person object</h1>", "app")
 class Person {
 	name = "Ankur";
 
 	constructor() {
+		console.log("================");
 		console.log("Creating Person Object");
 	}
 }
