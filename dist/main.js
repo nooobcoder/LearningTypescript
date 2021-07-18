@@ -11,6 +11,32 @@
     };
     return adjacentDescriptor;
 }; */
+// Validation function with Validatable interface
+function validate(validatable) {
+    var isValid = true;
+    if (validatable.required) {
+        isValid = isValid && validatable.value.toString().trim().length > 0;
+    }
+    if (validatable.minLength !== undefined &&
+        typeof validatable.value === "string") {
+        isValid =
+            isValid &&
+                validatable.value.toString().trim().length >= validatable.minLength;
+    }
+    if (validatable.maxLength !== undefined &&
+        typeof validatable.value === "string") {
+        isValid =
+            isValid &&
+                validatable.value.toString().trim().length <= validatable.maxLength;
+    }
+    if (validatable.min !== undefined && typeof validatable.value === "number") {
+        isValid = isValid && validatable.value >= validatable.min;
+    }
+    if (validatable.max !== undefined && typeof validatable.value === "number") {
+        isValid = isValid && validatable.value <= validatable.max;
+    }
+    return isValid;
+}
 var ProjectInput = /** @class */ (function () {
     function ProjectInput() {
         var _this = this;
@@ -18,10 +44,25 @@ var ProjectInput = /** @class */ (function () {
             var enteredTitle = _this.titleInputElement.value;
             var enteredDescription = _this.descriptionInputElement.value;
             var enteredPeople = _this.peopleInputElement.value;
+            var titleValidatable = {
+                value: enteredTitle,
+                required: true,
+            };
+            var descriptionValidatable = {
+                value: enteredDescription,
+                required: true,
+                minLength: 5,
+            };
+            var peopleValidatable = {
+                value: enteredPeople,
+                required: true,
+                min: 1,
+                max: 1,
+            };
             // Check if enteredTitle, enteeredDescription, enteredPeople are empty.
-            if (enteredTitle === "" ||
-                enteredDescription === "" ||
-                enteredPeople === "") {
+            if (!validate(titleValidatable) ||
+                !validate(descriptionValidatable) ||
+                !validate(peopleValidatable)) {
                 alert("Invalid input, please try again!");
                 return;
             }

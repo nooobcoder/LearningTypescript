@@ -11,6 +11,46 @@
 	return adjacentDescriptor;
 }; */
 
+// Validation
+interface Validatable {
+	value: string | number;
+	required?: boolean;
+	minLength?: number;
+	maxLength?: number;
+	min?: number;
+	max?: number;
+}
+// Validation function with Validatable interface
+function validate(validatable: Validatable): boolean {
+	let isValid = true;
+	if (validatable.required) {
+		isValid = isValid && validatable.value.toString().trim().length > 0;
+	}
+	if (
+		validatable.minLength !== undefined &&
+		typeof validatable.value === "string"
+	) {
+		isValid =
+			isValid &&
+			validatable.value.toString().trim().length >= validatable.minLength;
+	}
+	if (
+		validatable.maxLength !== undefined &&
+		typeof validatable.value === "string"
+	) {
+		isValid =
+			isValid &&
+			validatable.value.toString().trim().length <= validatable.maxLength;
+	}
+	if (validatable.min !== undefined && typeof validatable.value === "number") {
+		isValid = isValid && validatable.value >= validatable.min;
+	}
+	if (validatable.max !== undefined && typeof validatable.value === "number") {
+		isValid = isValid && validatable.value <= validatable.max;
+	}
+	return isValid;
+}
+
 class ProjectInput {
 	templateElement: HTMLTemplateElement;
 	hostElement: HTMLDivElement;
@@ -51,11 +91,27 @@ class ProjectInput {
 		const enteredDescription = this.descriptionInputElement.value;
 		const enteredPeople = this.peopleInputElement.value;
 
+		const titleValidatable: Validatable = {
+			value: enteredTitle,
+			required: true,
+		};
+		const descriptionValidatable: Validatable = {
+			value: enteredDescription,
+			required: true,
+			minLength: 5,
+		};
+		const peopleValidatable: Validatable = {
+			value: enteredPeople,
+			required: true,
+			min: 1,
+			max: 1,
+		};
+
 		// Check if enteredTitle, enteeredDescription, enteredPeople are empty.
 		if (
-			enteredTitle === "" ||
-			enteredDescription === "" ||
-			enteredPeople === ""
+			!validate(titleValidatable) ||
+			!validate(descriptionValidatable) ||
+			!validate(peopleValidatable)
 		) {
 			alert("Invalid input, please try again!");
 			return;
