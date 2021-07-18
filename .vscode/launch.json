@@ -17,6 +17,15 @@
 			"runtimeExecutable": "npm",
 			"console": "integratedTerminal",
 			"runtimeArgs": ["run-script", "nodemon"]
+		},
+		{
+			"type": "node",
+			"name": "Serve with parcel",
+			"request": "launch",
+			"cwd": "${workspaceRoot}",
+			"runtimeExecutable": "npm",
+			"console": "integratedTerminal",
+			"runtimeArgs": ["run-script", "serve"]
 		}
 	]
 }

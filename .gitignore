@@ -1,1 +1,21 @@
 node_modules/*
+
+# ===========================================
+# Ignore files for `parcel`
+.cache/
+coverage/
+dist/*
+!dist/index.html
+!dist/main.js
+!dist/main.js.map
+*.log
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+# ===========================================
