@@ -17,7 +17,7 @@ class ProjectInput {
 	element: HTMLFormElement;
 	titleInputElement: HTMLInputElement;
 	descriptionInputElement: HTMLInputElement;
-	peopleInptuElement: HTMLInputElement;
+	peopleInputElement: HTMLInputElement;
 
 	constructor() {
 		this.templateElement = <HTMLTemplateElement>(
@@ -38,7 +38,7 @@ class ProjectInput {
 		this.descriptionInputElement = this.element.querySelector(
 			"#description"
 		) as HTMLInputElement;
-		this.peopleInptuElement = this.element.querySelector(
+		this.peopleInputElement = this.element.querySelector(
 			"#people"
 		) as HTMLInputElement;
 
@@ -46,10 +46,39 @@ class ProjectInput {
 		this.attach();
 	}
 
+	private gatherUserInput = (): [string, string, number] | void => {
+		const enteredTitle = this.titleInputElement.value;
+		const enteredDescription = this.descriptionInputElement.value;
+		const enteredPeople = this.peopleInputElement.value;
+
+		// Check if enteredTitle, enteeredDescription, enteredPeople are empty.
+		if (
+			enteredTitle === "" ||
+			enteredDescription === "" ||
+			enteredPeople === ""
+		) {
+			alert("Invalid input, please try again!");
+			return;
+		} else {
+			return [enteredTitle, enteredDescription, +enteredPeople];
+		}
+	};
+
+	private clearInput = () => {
+		// Clear the input fields.
+		this.titleInputElement.value = "";
+		this.descriptionInputElement.value = "";
+		this.peopleInputElement.value = "";
+	};
+
 	// @autoBind
 	private submitHandler = (event: Event) => {
 		event?.preventDefault();
-		console.log(this.titleInputElement.value);
+		const userInput = this.gatherUserInput();
+		// Check if userInput is an array
+		if (Array.isArray(userInput)) {
+			const [title, description, people] = userInput;
+		}
 	};
 
 	private configureEventListeners = () => {
