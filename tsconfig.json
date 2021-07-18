@@ -3,6 +3,7 @@
 		"target": "es5",
 		"module": "es6",
 		"lib": ["es6", "DOM", "dom.iterable", "ScriptHost"],
+		"experimentalDecorators": true,
 		"moduleResolution": "Node",
 		"strict": true,
 		"sourceMap": true,
