@@ -5,7 +5,7 @@
 	"author": "Ankur Paul",
 	"main": "index.js",
 	"scripts": {
-		"tsc": "./node_modules/typescript/bin/tsc -p .",
+		"tsc": "./node_modules/typescript/bin/tsc --watch -p .",
 		"nodemon": "nodemon ./dist/main.js",
 		"serve": "parcel src/index.html",
 		"clean": "rm dist/bundle.js"
