@@ -3,6 +3,7 @@ node_modules/*
 # ===========================================
 # Ignore files for `parcel`
 .cache/
+.idea/
 coverage/
 dist/*
 !dist/index.html
