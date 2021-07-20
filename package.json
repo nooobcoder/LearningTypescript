@@ -4,13 +4,14 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"tsc": "./node_modules/typescript/bin/tsc -p .",
+		"tsc": "./node_modules/typescript/bin/tsc --watch -p .",
 		"nodemon": "nodemon ./dist/main.js"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"devDependencies": {
+		"prettier": "2.3.2",
 		"typescript": "^4.3.4"
 	},
 	"dependencies": {
