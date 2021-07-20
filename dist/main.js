@@ -11,6 +11,12 @@
     };
     return adjacentDescriptor;
 }; */
+var ProjectStatus;
+(function (ProjectStatus) {
+    ProjectStatus[ProjectStatus["Active"] = 0] = "Active";
+    ProjectStatus[ProjectStatus["Finished"] = 1] = "Finished";
+})(ProjectStatus || (ProjectStatus = {}));
+// Project state management
 var ProjectState = /** @class */ (function () {
     function ProjectState() {
         var _this = this;
@@ -24,6 +30,7 @@ var ProjectState = /** @class */ (function () {
                 title: title,
                 description: description,
                 people: numberOfPeople,
+                status: ProjectStatus.Active,
             };
             _this.projects.push(newProject);
             for (var _i = 0, _a = _this.listeners; _i < _a.length; _i++) {
@@ -94,7 +101,13 @@ var ProjectList = /** @class */ (function () {
         this.element.id = this.projectType + "-projects";
         // Register a listener for the project state
         projectState.addListener(function (projects) {
-            _this.assignedProjects = projects;
+            // Filter the relevant projects (active or finished)
+            var relatedProjects = projects.filter(function (project) {
+                return _this.projectType === "active"
+                    ? project.status === ProjectStatus.Active
+                    : project.status === ProjectStatus.Finished;
+            });
+            _this.assignedProjects = relatedProjects;
             _this.renderProjects();
         });
         this.attach();
@@ -102,6 +115,7 @@ var ProjectList = /** @class */ (function () {
     }
     ProjectList.prototype.renderProjects = function () {
         var listElement = document.getElementById(this.projectType + "-projects-list");
+        listElement.innerHTML = "";
         // loop through the assignedProjects array
         for (var _i = 0, _a = this.assignedProjects; _i < _a.length; _i++) {
             var project = _a[_i];
