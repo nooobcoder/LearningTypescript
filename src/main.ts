@@ -1,5 +1,19 @@
+// Drag & Drop Interfaces
+interface Draggable {
+  dragStartHandler(event: DragEvent): void;
+
+  dragEndHandler(event: DragEvent): void;
+}
+
+interface DragTarget {
+  dragOverHandler(event: DragEvent): void;
+
+  dropHandler(event: DragEvent): void;
+
+  dragLeaveHandler(event: DragEvent): void;
+}
+
 // Project Type
-// An enum providing types
 enum ProjectStatus {
   Active,
   Finished,
@@ -21,10 +35,6 @@ type Listener<T> = (items: T[]) => void;
 class State<T> {
   protected listeners: Listener<T>[] = [];
 
-  /**
-   * Attaches a listener, by invoking the callback received as the parameter
-   * @param listenerFn
-   */
   addListener(listenerFn: Listener<T>) {
     this.listeners.push(listenerFn);
   }
@@ -38,9 +48,6 @@ class ProjectState extends State<Project> {
     super();
   }
 
-  /**
-   * The function that makes this class a singleton https://www.wikiwand.com/en/Singleton_pattern
-   */
   static getInstance() {
     if (this.instance) {
       return this.instance;
@@ -49,15 +56,21 @@ class ProjectState extends State<Project> {
     return this.instance;
   }
 
-  /**
-   * Pushes the user input altogether into the projects array.
-   * @param title
-   * @param description
-   * @param numOfPeople
-   */
   addProject(title: string, description: string, numOfPeople: number) {
     const newProject = new Project(Math.random().toString(), title, description, numOfPeople, ProjectStatus.Active);
     this.projects.push(newProject);
+    this.updateListeners();
+  }
+
+  moveProject(projectId: string, newStatus: ProjectStatus) {
+    const project = this.projects.find((prj) => prj.id === projectId);
+    if (project && project.status !== newStatus) {
+      project.status = newStatus;
+      this.updateListeners();
+    }
+  }
+
+  private updateListeners() {
     for (const listenerFn of this.listeners) {
       listenerFn(this.projects.slice());
     }
@@ -76,10 +89,6 @@ interface Validatable {
   max?: number;
 }
 
-/**
- * A simple validation function that has a required (boolean) field in the parameter.
- * @param validatableInput
- */
 function validate(validatableInput: Validatable) {
   let isValid = true;
   if (validatableInput.required) {
@@ -101,18 +110,13 @@ function validate(validatableInput: Validatable) {
 }
 
 // autobind decorator
-/**
- * A custom decorator that prevents us to use bind() when binding to a function of a class. This behavior can be avoided by wrapping the call in an arrow function.
- * @param _
- * @param _2
- * @param descriptor
- */
 function autobind(_: any, _2: string, descriptor: PropertyDescriptor) {
   const originalMethod = descriptor.value;
   const adjDescriptor: PropertyDescriptor = {
     configurable: true,
     get() {
-      return originalMethod.bind(this);
+      const boundFn = originalMethod.bind(this);
+      return boundFn;
     },
   };
   return adjDescriptor;
@@ -124,14 +128,7 @@ abstract class Component<T extends HTMLElement, U extends HTMLElement> {
   hostElement: T;
   element: U;
 
-  /**
-   *
-   * @param templateId
-   * @param hostElementId
-   * @param insertAtStart
-   * @param newElementId
-   */
-  protected constructor(templateId: string, hostElementId: string, insertAtStart: boolean, newElementId?: string) {
+  constructor(templateId: string, hostElementId: string, insertAtStart: boolean, newElementId?: string) {
     this.templateElement = document.getElementById(templateId)! as HTMLTemplateElement;
     this.hostElement = document.getElementById(hostElementId)! as T;
 
@@ -144,34 +141,61 @@ abstract class Component<T extends HTMLElement, U extends HTMLElement> {
     this.attach(insertAtStart);
   }
 
-  /**
-   * Attaches the HTML DOM element at the position as per the parameter specification.
-   * @param insertAtBeginning
-   * @private
-   */
   private attach(insertAtBeginning: boolean) {
     this.hostElement.insertAdjacentElement(insertAtBeginning ? 'afterbegin' : 'beforeend', this.element);
   }
 
-  /**
-   * custom configure function - abstract (needs to be implemented)
-   */
   abstract configure(): void;
 
-  /**
-   * custom function to render HTML elements on DOM - abstract (needs to be implemented)
-   */
   abstract renderContent(): void;
 }
 
+// ProjectItem Class
+class ProjectItem extends Component<HTMLUListElement, HTMLLIElement> implements Draggable {
+  private project: Project;
+
+  get persons() {
+    if (this.project.people === 1) {
+      return '1 person';
+    } else {
+      return `${this.project.people} persons`;
+    }
+  }
+
+  constructor(hostId: string, project: Project) {
+    super('single-project', hostId, false, project.id);
+    this.project = project;
+
+    this.configure();
+    this.renderContent();
+  }
+
+  @autobind
+  dragStartHandler(event: DragEvent) {
+    event.dataTransfer!.setData('text/plain', this.project.id);
+    event.dataTransfer!.effectAllowed = 'move';
+  }
+
+  dragEndHandler(_: DragEvent) {
+    console.log('DragEnd');
+  }
+
+  configure() {
+    this.element.addEventListener('dragstart', this.dragStartHandler);
+    this.element.addEventListener('dragend', this.dragEndHandler);
+  }
+
+  renderContent() {
+    this.element.querySelector('h2')!.textContent = this.project.title;
+    this.element.querySelector('h3')!.textContent = this.persons + ' assigned';
+    this.element.querySelector('p')!.textContent = this.project.description;
+  }
+}
+
 // ProjectList Class
-class ProjectList extends Component<HTMLDivElement, HTMLElement> {
+class ProjectList extends Component<HTMLDivElement, HTMLElement> implements DragTarget {
   assignedProjects: Project[];
 
-  /**
-   *
-   * @param type
-   */
   constructor(private type: 'active' | 'finished') {
     super('project-list', 'app', false, `${type}-projects`);
     this.assignedProjects = [];
@@ -180,20 +204,47 @@ class ProjectList extends Component<HTMLDivElement, HTMLElement> {
     this.renderContent();
   }
 
+  @autobind
+  dragOverHandler(event: DragEvent) {
+    if (event.dataTransfer && event.dataTransfer.types[0] === 'text/plain') {
+      event.preventDefault();
+      const listEl = this.element.querySelector('ul')!;
+      listEl.classList.add('droppable');
+    }
+  }
+
+  @autobind
+  dropHandler(event: DragEvent) {
+    const prjId = event.dataTransfer!.getData('text/plain');
+    projectState.moveProject(prjId, this.type === 'active' ? ProjectStatus.Active : ProjectStatus.Finished);
+  }
+
+  @autobind
+  dragLeaveHandler(_: DragEvent) {
+    const listEl = this.element.querySelector('ul')!;
+    listEl.classList.remove('droppable');
+  }
+
   configure() {
+    this.element.addEventListener('dragover', this.dragOverHandler);
+    this.element.addEventListener('dragleave', this.dragLeaveHandler);
+    this.element.addEventListener('drop', this.dropHandler);
+
     projectState.addListener((projects: Project[]) => {
-      this.assignedProjects = projects.filter((prj) => {
+      const relevantProjects = projects.filter((prj) => {
         if (this.type === 'active') {
           return prj.status === ProjectStatus.Active;
         }
         return prj.status === ProjectStatus.Finished;
       });
+      this.assignedProjects = relevantProjects;
       this.renderProjects();
     });
   }
 
   renderContent() {
-    this.element.querySelector('ul')!.id = `${this.type}-projects-list`;
+    const listId = `${this.type}-projects-list`;
+    this.element.querySelector('ul')!.id = listId;
     this.element.querySelector('h2')!.textContent = this.type.toUpperCase() + ' PROJECTS';
   }
 
@@ -201,9 +252,7 @@ class ProjectList extends Component<HTMLDivElement, HTMLElement> {
     const listEl = document.getElementById(`${this.type}-projects-list`)! as HTMLUListElement;
     listEl.innerHTML = '';
     for (const prjItem of this.assignedProjects) {
-      const listItem = document.createElement('li');
-      listItem.textContent = prjItem.title;
-      listEl.appendChild(listItem);
+      new ProjectItem(this.element.querySelector('ul')!.id, prjItem);
     }
   }
 }
@@ -228,10 +277,6 @@ class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
 
   renderContent() {}
 
-  /**
-   * Gets the values from the input fields in the form and sets them to the local variables.
-   * @private
-   */
   private gatherUserInput(): [string, string, number] | void {
     const enteredTitle = this.titleInputElement.value;
     const enteredDescription = this.descriptionInputElement.value;
@@ -261,22 +306,12 @@ class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
     }
   }
 
-  /**
-   * Clears the user input fields in the form.
-   * @private
-   */
   private clearInputs() {
     this.titleInputElement.value = '';
     this.descriptionInputElement.value = '';
     this.peopleInputElement.value = '';
   }
 
-  /**
-   * Handles form submission, this prevents reloading of the site as the default DOM behavior.
-   * Then it renders the user inputs in the projects list.
-   * @param event
-   * @private
-   */
   @autobind
   private submitHandler(event: Event) {
     event.preventDefault();
@@ -289,8 +324,6 @@ class ProjectInput extends Component<HTMLDivElement, HTMLFormElement> {
   }
 }
 
-// Instantiating the classes
 const prjInput = new ProjectInput();
-
 const activePrjList = new ProjectList('active');
 const finishedPrjList = new ProjectList('finished');
