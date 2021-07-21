@@ -6,7 +6,7 @@
   "scripts": {
     "tsc": "./node_modules/typescript/bin/tsc --watch -p .",
     "nodemon": "nodemon ./dist/main.js",
-    "serve": "parcel src/index.html"
+    "webpackbuild": "webpack"
   },
   "keywords": [],
   "author": "",
