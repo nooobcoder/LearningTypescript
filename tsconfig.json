@@ -1,20 +1,21 @@
 {
-	"compilerOptions": {
-		"target": "es5",
-		"module": "es6",
-		// "lib": ["ESNext", "DOM"],
-		"moduleResolution": "Node",
-		"strict": true,
-		"sourceMap": true,
-		"resolveJsonModule": true,
-		"esModuleInterop": true,
-		"noEmit": false,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-		"noImplicitReturns": true,
-		"outDir": "./dist",
-		"rootDir": "./src",
-		"noEmitOnError": true
-	},
-	"include": ["./src", "app.ts", "vite-env.d.ts"]
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "target": "es5",
+    "module": "es6",
+    "lib": ["dom", "es6", "dom.iterable", "scripthost"] /* Specify library files to be included in the compilation. */,
+    "moduleResolution": "Node",
+    "strict": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "noEmit": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "noEmitOnError": true
+  },
+  "include": ["./src", "app.ts", "vite-env.d.ts"]
 }
