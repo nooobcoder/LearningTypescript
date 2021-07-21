@@ -1,6 +1,12 @@
+/// <reference path="base-component.ts" />
+/// <reference path="../decorators/autobind.ts" />
+/// <reference path="../models/project.ts" />
+/// <reference path="../models/drag-drop.ts" />
+
 namespace App {
   // ProjectItem Class
-  export class ProjectItem extends Component<HTMLUListElement, HTMLLIElement> implements Draggable {
+  export class ProjectItem extends Component<HTMLUListElement, HTMLLIElement>
+    implements Draggable {
     private project: Project;
 
     get persons() {
@@ -26,7 +32,7 @@ namespace App {
     }
 
     dragEndHandler(_: DragEvent) {
-      console.log('DragEnd');
+      // console.log('DragEnd');
     }
 
     configure() {
@@ -36,8 +42,10 @@ namespace App {
 
     renderContent() {
       this.element.querySelector('h2')!.textContent = this.project.title;
-      this.element.querySelector('h3')!.textContent = this.persons + ' assigned';
+      this.element.querySelector('h3')!.textContent =
+        this.persons + ' assigned';
       this.element.querySelector('p')!.textContent = this.project.description;
     }
   }
+
 }
