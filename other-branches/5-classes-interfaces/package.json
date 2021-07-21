@@ -1,0 +1,16 @@
+{
+	"name": "nextgenjsts",
+	"version": "0.0.0",
+	"scripts": {
+		"dev": "vite --host 0.0.0.0",
+		"nodemon": "nodemon ./dist/main.js",
+		"build": "tsc && vite build"
+	},
+	"devDependencies": {
+		"ts-node": "^10.1.0",
+		"typescript": "^4.3.2"
+	},
+	"dependencies": {
+		"nodemon": "^2.0.12"
+	}
+}
