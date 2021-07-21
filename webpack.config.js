@@ -7,6 +7,7 @@ const config = {
 		path: path.resolve(__dirname, 'dist'), // This should always be an absolute path
 	},
 	devtool: 'inline-source-map',
+	mode: 'development',
 	module: {
 		rules: [
 			{
