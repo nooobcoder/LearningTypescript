@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7fba513b-edb6-4fe9-a15b-2874f833685b" name="Changes" comment="Final commit" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="nooobcoder &lt;suryashi2013@gmail.com&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="SIGN_OFF_COMMIT" value="true" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/src/main.ts" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="JsBowerSettings">
+    <bower-package value="" />
+    <bower.json value="" />
+  </component>
+  <component name="ProjectId" id="1vXddxvSXLoYDFpf1TQT7yRljHF" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.stylelint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.stylelint" value="" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="prettierjs.PrettierConfiguration.Package" value="$PROJECT_DIR$/node_modules/prettier" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.JavaScript" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="ReaderModeSettings">
+    <option name="showLigatures" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/state" />
+      <recent name="$PROJECT_DIR$/src/util" />
+      <recent name="$PROJECT_DIR$/src/models" />
+      <recent name="$PROJECT_DIR$/src/decorators" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.Bundle with Webpack">
+    <configuration name="Bundle with Webpack" type="js.build_tools.npm" singleton="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="webpackbuild" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="Serve with Webpack Dev Server" type="js.build_tools.npm" temporary="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="webpackserve" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="Transcompile Typescript" type="js.build_tools.npm" singleton="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="tsc" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="npm.Transcompile Typescript" />
+      <item itemvalue="npm.Bundle with Webpack" />
+      <item itemvalue="npm.Serve with Webpack Dev Server" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.Serve with Webpack Dev Server" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7fba513b-edb6-4fe9-a15b-2874f833685b" name="Changes" comment="" />
+      <created>1626712464621</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1626712464621</updated>
+      <workItem from="1626712474319" duration="4088000" />
+      <workItem from="1626750898540" duration="6517000" />
+      <workItem from="1626782783622" duration="1594000" />
+      <workItem from="1626837407838" duration="724000" />
+      <workItem from="1626838908655" duration="145000" />
+      <workItem from="1626839365711" duration="5383000" />
+      <workItem from="1626845527858" duration="73000" />
+      <workItem from="1626845665403" duration="1742000" />
+      <workItem from="1626847468323" duration="33000" />
+      <workItem from="1626847557773" duration="1142000" />
+      <workItem from="1626848716488" duration="27000" />
+      <workItem from="1626848792115" duration="774000" />
+      <workItem from="1626850535092" duration="61000" />
+      <workItem from="1626871828203" duration="1365000" />
+      <workItem from="1626876552259" duration="975000" />
+      <workItem from="1626877545461" duration="2935000" />
+      <workItem from="1626880533865" duration="2800000" />
+    </task>
+    <task id="LOCAL-00001" summary="Updated gitignore">
+      <created>1626715629280</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1626715629280</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Provided global state using singleton class">
+      <created>1626717245338</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1626717245339</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Provided global state using singleton class">
+      <created>1626717257645</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1626717257645</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added watch mode in npm scripts for typescript">
+      <created>1626717282275</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1626717282275</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Specified proper class types for better autocompletion">
+      <created>1626717909289</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1626717909289</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Filtered projects with enums">
+      <created>1626753209760</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1626753209761</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Added prettier to prettify the files">
+      <created>1626756210709</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1626756210709</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Added inheritance generics for better autocompletion. Added support for JSDocs.">
+      <created>1626756341439</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1626756341439</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Complete">
+      <created>1626783956095</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1626783956095</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Added prettier to the list of dependencies to pretty format the files.">
+      <created>1626784208963</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1626784208963</updated>
+    </task>
+    <task id="LOCAL-00011" summary="First UI render of project">
+      <created>1626841155494</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1626841155495</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Moved to namespaces and restructured entire project structure.">
+      <created>1626843457156</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1626843457156</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Final commit before moving">
+      <created>1626847210963</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1626847210964</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Successfully moved to ES based exports">
+      <created>1626848163102</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1626848163104</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Final commit">
+      <created>1626848543342</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1626848543342</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Added webpack as a dependency">
+      <created>1626877435977</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1626877435977</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Added webpack as a dependency and configured it">
+      <created>1626880181788</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1626880181788</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Added compilation mode for webpack">
+      <created>1626880719686</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1626880719687</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Added run configuration for bundling the source file">
+      <created>1626880746938</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1626880746938</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Other optimisations">
+      <created>1626880784039</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1626880784039</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Configuration Changes">
+      <created>1626882613123</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1626882613123</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Final commit">
+      <created>1626883109918</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1626883109918</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Updated gitignore" />
+    <MESSAGE value="Provided global state using singleton class" />
+    <MESSAGE value="Added watch mode in npm scripts for typescript" />
+    <MESSAGE value="Specified proper class types for better autocompletion" />
+    <MESSAGE value="Filtered projects with enums" />
+    <MESSAGE value="Added prettier to prettify the files" />
+    <MESSAGE value="Added inheritance generics for better autocompletion. Added support for JSDocs." />
+    <MESSAGE value="Complete" />
+    <MESSAGE value="Added prettier to the list of dependencies to pretty format the files." />
+    <MESSAGE value="First UI render of project" />
+    <MESSAGE value="Moved to namespaces and restructured entire project structure." />
+    <MESSAGE value="Final commit before moving" />
+    <MESSAGE value="Successfully moved to ES based exports" />
+    <MESSAGE value="Added webpack as a dependency" />
+    <MESSAGE value="Added webpack as a dependency and configured it" />
+    <MESSAGE value="Added compilation mode for webpack" />
+    <MESSAGE value="Added run configuration for bundling the source file" />
+    <MESSAGE value="Other optimisations" />
+    <MESSAGE value="Configuration Changes" />
+    <MESSAGE value="Final commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final commit" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
