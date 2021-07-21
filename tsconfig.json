@@ -1,20 +1,22 @@
 {
-	"compilerOptions": {
-		"target": "es5",
-		"module": "es6",
-		// "lib": ["ESNext", "DOM"],
-		"moduleResolution": "Node",
-		"strict": true,
-		"sourceMap": true,
-		"resolveJsonModule": true,
-		"esModuleInterop": true,
-		"noEmit": false,
-		"noUnusedLocals": true,
-		"noUnusedParameters": true,
-		"noImplicitReturns": true,
-		"outDir": "./dist",
-		"rootDir": "./src",
-		"noEmitOnError": true
-	},
-	"include": ["./src", "app.ts", "vite-env.d.ts"]
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "target": "es6" /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'. */,
+    "module": "es2015" /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */,
+    "lib": ["dom", "es6", "dom.iterable", "scripthost"] /* Specify library files to be included in the compilation. */,
+    "moduleResolution": "Node",
+    "strict": true,
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    // "outFile": "./dist/bundle.js",
+    "noEmit": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "outDir": "./dist",
+//    "rootDir": "./src",
+    "noEmitOnError": true
+  },
+  "include": ["./src", "app.ts", "vite-env.d.ts"]
 }
