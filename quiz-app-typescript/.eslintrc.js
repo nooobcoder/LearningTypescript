@@ -27,6 +27,7 @@ module.exports = {
   },
   rules: {
     'no-bitwise': 'off',
+    semi: [1, 'always'],
     'linebreak-style': 'off',
     'spellcheck/spell-checker': [
       1,
@@ -34,7 +35,7 @@ module.exports = {
         comments: true,
         strings: true,
         identifiers: true,
-        ignoreRequire:true,
+        ignoreRequire: true,
         lang: 'en_US',
         skipWords: ['dict', 'aff', 'hunspellchecker', 'hunspell', 'utils'],
         skipIfMatch: ['http://[^s]*'],

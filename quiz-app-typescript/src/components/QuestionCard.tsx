@@ -2,10 +2,10 @@ import React, { FC } from 'react';
 import { generateUUID } from '../utils';
 
 type Props = {
-  question: string;
-  answer: string[];
+  question: string | null;
+  answer: string[] | null;
   callback: any;
-  userAnswer: boolean;
+  userAnswer: boolean | undefined;
   questionNumber: number;
   totalQuestions: number;
 };
@@ -25,15 +25,16 @@ const QuestionCard: FC<Props> = ({
       </p>
       <p>{question}</p>
       <div>
-        {answers.map((answer) => (
-          <div>
-            <button disabled={userAnswer} onClick={() => callback()} type="button">
-              <span key={generateUUID().toString()} id={generateUUID().toString()}>
-                {answer}
-              </span>
-            </button>
-          </div>
-        ))}
+        {answers &&
+          answers.map((answer) => (
+            <div>
+              <button disabled={userAnswer} onClick={() => callback()} type="button">
+                <span key={generateUUID().toString()} id={generateUUID().toString()}>
+                  {answer}
+                </span>
+              </button>
+            </div>
+          ))}
       </div>
     </div>
   );
