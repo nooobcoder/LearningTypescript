@@ -26,6 +26,7 @@ module.exports = {
     project: './tsconfig.json',
   },
   rules: {
+    'no-bitwise': 'off',
     'linebreak-style': 'off',
     'prettier/prettier': [
       'error',
