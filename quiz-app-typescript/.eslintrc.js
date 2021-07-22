@@ -6,7 +6,7 @@ module.exports = {
     'plugin:jest/recommended',
     'plugin:prettier/recommended',
   ],
-  plugins: ['react', '@typescript-eslint', 'jest'],
+  plugins: ['react', '@typescript-eslint', 'jest', 'spellcheck'],
   env: {
     browser: true,
     es6: true,
@@ -28,6 +28,20 @@ module.exports = {
   rules: {
     'no-bitwise': 'off',
     'linebreak-style': 'off',
+    'spellcheck/spell-checker': [
+      1,
+      {
+        comments: true,
+        strings: true,
+        identifiers: true,
+        ignoreRequire:true,
+        lang: 'en_US',
+        skipWords: ['dict', 'aff', 'hunspellchecker', 'hunspell', 'utils'],
+        skipIfMatch: ['http://[^s]*'],
+        skipWordIfMatch: ['^foobar.*$'],
+        minLength: 5,
+      },
+    ],
     'prettier/prettier': [
       'error',
       {
