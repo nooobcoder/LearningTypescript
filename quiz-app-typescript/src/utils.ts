@@ -6,4 +6,10 @@ export const generateUUID = (): string =>
     return v.toString(16);
   });
 
-export const foo = (): void => {};
+/**
+ * Shuffles the array passed as a parameter
+ * @param array
+ * https://forum.freecodecamp.org/t/how-does-math-random-work-to-sort-an-array/151540
+ */
+export const shuffleArray = (array: Array<any>): Array<any> =>
+  [...array].sort(() => Math.random() - 0.5);
