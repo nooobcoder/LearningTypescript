@@ -7,6 +7,7 @@
     "@types/node": "^16.4.0",
     "@types/react": "^17.0.14",
     "@types/react-dom": "^17.0.9",
+    "@types/styled-components": "^5.1.11",
     "@typescript-eslint/parser": "^4.28.4",
     "prop-types": "^15.7.2",
     "react": "^18.0.0-alpha-9ab90de60-20210720",
@@ -20,9 +21,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "format": "prettier --write src/**/*.ts{,x}",
-    "lint": "tsc --noEmit && eslint src/**/*.ts{,x}"
+    "lint": "tsc --noEmit && eslint src/**/*.ts{,x}",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [

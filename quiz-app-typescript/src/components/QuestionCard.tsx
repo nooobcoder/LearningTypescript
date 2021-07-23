@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 import { ANSWEROBJECT } from '../App';
 import { generateUUID } from '../utils';
 
+import { Wrapper, ButtonWrapper } from './QuestionCard.styles';
+
 type Props = {
   question: string | null;
   answer: string[] | null;
@@ -20,27 +22,32 @@ const QuestionCard: FC<Props> = ({
   totalQuestions,
 }: Props) => {
   return (
-    <div>
+    <Wrapper>
       <p className="number">
         Question: {questionNumber} / {totalQuestions}
       </p>
-      <p>{question}</p>
+      <p dangerouslySetInnerHTML={{ __html: question! }} />
       <div>
         {answers &&
           answers.map((answer) => (
-            <div key={generateUUID().toString()} id={generateUUID().toString()}>
+            <ButtonWrapper
+              key={generateUUID().toString()}
+              id={generateUUID().toString()}
+              correct={userAnswer?.correctAnswer === answer}
+              userClicked={userAnswer?.answer === answer}
+            >
               <button
                 disabled={!!userAnswer}
                 onClick={(e) => callback(e)}
                 value={answer}
                 type="button"
               >
-                <span>{answer}</span>
+                <span dangerouslySetInnerHTML={{ __html: answer }} />
               </button>
-            </div>
+            </ButtonWrapper>
           ))}
       </div>
-    </div>
+    </Wrapper>
   );
 };
 
