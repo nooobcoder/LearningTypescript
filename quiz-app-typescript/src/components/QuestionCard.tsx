@@ -5,7 +5,7 @@ import { generateUUID } from '../utils';
 type Props = {
   question: string | null;
   answer: string[] | null;
-  callback: any;
+  callback: (e: React.MouseEvent<HTMLButtonElement>) => void;
   userAnswer: ANSWEROBJECT | undefined;
   questionNumber: number;
   totalQuestions: number;
