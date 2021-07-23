@@ -27,6 +27,7 @@ module.exports = {
   },
   rules: {
     'no-bitwise': 'off',
+    'import/no-cycle': 'off',
     semi: [1, 'always'],
     'linebreak-style': 'off',
     'spellcheck/spell-checker': [
