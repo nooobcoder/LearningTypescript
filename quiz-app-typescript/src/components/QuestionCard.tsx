@@ -29,11 +29,14 @@ const QuestionCard: FC<Props> = ({
         {answers &&
           answers.map((answer) => (
             <div key={generateUUID().toString()} id={generateUUID().toString()}>
-              {/* <button disabled={userAnswer.length>} onClick={() => callback()} type="button">
-                <span >
-                  {answer}
-                </span>
-              </button> */}
+              <button
+                disabled={!!userAnswer}
+                onClick={(e) => callback(e)}
+                value={answer}
+                type="button"
+              >
+                <span>{answer}</span>
+              </button>
             </div>
           ))}
       </div>
