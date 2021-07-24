@@ -7,7 +7,7 @@
     "tsc": "./node_modules/typescript/bin/tsc --watch -p .",
     "nodemon": "nodemon ./dist/main.js",
     "webpackserve": "webpack serve",
-    "webpackbuild": "webpack --config webpack.config.prod.js"
+    "webpackbuild": "webpack --config webpack.config.js"
   },
   "keywords": [],
   "author": "",

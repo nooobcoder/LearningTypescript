@@ -7,6 +7,7 @@ const config = {
     path: path.resolve(__dirname, 'dist'), // This should always be an absolute path
     publicPath: 'dist',
   },
+  watch: true, // Watches for file changes and does not terminate.
   devtool: 'inline-source-map',
   mode: 'development',
   devServer: {
