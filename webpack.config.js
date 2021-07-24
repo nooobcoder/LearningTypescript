@@ -5,7 +5,7 @@ const config = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'), // This should always be an absolute path
-    publicPath: 'dist',
+    publicPath: '/dist/',
   },
   watch: true, // Watches for file changes and does not terminate.
   devtool: 'inline-source-map',
