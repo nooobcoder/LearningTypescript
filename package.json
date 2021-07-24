@@ -15,6 +15,7 @@
   "devDependencies": {
     "@types/lodash": "^4.14.171",
     "class-transformer": "^0.4.0",
+    "class-validator": "^0.13.1",
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "prettier": "^2.3.2",
     "reflect-metadata": "^0.1.13",
