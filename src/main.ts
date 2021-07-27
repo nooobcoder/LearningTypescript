@@ -1,17 +1,11 @@
-import { CsvFileReader } from './CsvFileReader.js';
+import { winConstants } from './matchResult.js';
+import { MatchReader } from './MatchReader.js';
 
-const reader = new CsvFileReader('football.csv');
+const reader = new MatchReader('football.csv');
 reader.read();
 
 let manUnitedWins = 0;
 
-enum winConstants {
-  HomeWin = 'H',
-  AwayWin = 'A',
-  Draw = 'D',
-}
-
-console.log(reader.data);
 for (const match of reader.data) {
   if (match[1] === 'Man United' && match[5] === winConstants.HomeWin) {
     manUnitedWins += 1;

@@ -1,0 +1,23 @@
+import fs from 'fs';
+import { dateStringToDate } from './utils.js';
+import { winConstants } from './matchResult';
+
+type MatchData = [Date, string, string, number, number, winConstants, string];
+
+class CsvFileReader {
+  data: MatchData[] = [];
+
+  constructor(public filename: string) {}
+
+  read(): void {
+    this.data = fs
+      .readFileSync(`src/${this.filename}`, { encoding: 'utf-8' })
+      .split('\n')
+      .map((row: string) => row.split(','))
+      .map((row: string[]): MatchData => {
+        return [dateStringToDate(row[0]), row[1], row[2], +row[3], +row[4], row[5] as winConstants, row[6]];
+      });
+  }
+}
+
+export { CsvFileReader };
