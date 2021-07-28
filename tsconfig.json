@@ -2,7 +2,12 @@
 	"compilerOptions": {
 		"target": "es5",
 		"module": "es6",
-		// "lib": ["ESNext", "DOM"],
+		"lib": [
+			"es6",
+			"DOM",
+			"dom.iterable",
+			"ScriptHost"
+		],
 		"moduleResolution": "Node",
 		"strict": true,
 		"sourceMap": true,
