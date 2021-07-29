@@ -1,5 +1,8 @@
+import axios, { AxiosResponse } from 'axios';
+
 interface UserProps {
   // ? operator defines an optional key-value
+  id?: number;
   name?: string;
   age?: number;
 }
@@ -11,8 +14,7 @@ class User {
 
   constructor(private data: UserProps) {}
 
-  get(propName: UserProps): number | string {
-    // @ts-ignore
+  get(propName: keyof UserProps): number | string | undefined {
     return this.data[propName];
   }
 
@@ -36,6 +38,25 @@ class User {
     }
 
     handlers.forEach((callback) => callback());
+  }
+
+  async fetch() {
+    try {
+      const response: AxiosResponse = await axios.get(`http://192.168.0.120:5000/users/${this.get('id')}`);
+      this.set(response.data);
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  save(): void {
+    const id = this.get('id');
+
+    if (id) {
+      axios.put(`http://192.168.0.120:5000/users/${id}`, this.data);
+    } else {
+      axios.post(`http://192.168.0.120:5000/users/`, this.data);
+    }
   }
 }
 

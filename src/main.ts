@@ -1,5 +1,6 @@
 import { User } from './models/User';
 
+/*
 const user = new User({ name: 'Ankur Paul', age: 20 });
 user.on('change', () => {
   console.log('This is a callback');
@@ -11,3 +12,7 @@ user.on('save', () => console.log('Save was triggered'));
 console.log(user);
 user.trigger('change');
 user.trigger('save');
+*/
+
+const user = new User({ name: 'new record', age: 0 });
+user.save();
