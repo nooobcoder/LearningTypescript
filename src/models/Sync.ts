@@ -8,7 +8,9 @@ class Sync<T extends hasId> {
   constructor(public rootUrl: string) {}
 
   async fetch(id: number): Promise<AxiosResponse> {
-    return (await axios.get(`${this.rootUrl}/${id}`)).data;
+    const data = (await axios.get(`${this.rootUrl}/${id}`)).data;
+
+    return new Promise((resolve) => resolve(data));
   }
 
   save(data: T): void {
