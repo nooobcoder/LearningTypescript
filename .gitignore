@@ -3,6 +3,7 @@ node_modules/*
 .cache/
 dist/*
 *.log
+dbsnapshot/*
 
 # OS generated files
 .DS_Store
@@ -12,4 +13,4 @@ dist/*
 .Trashes
 ehthumbs.db
 Thumbs.db
-# ===========================================dbsnapshot/
+# ===========================================
