@@ -57,8 +57,9 @@ class User {
 
   save = async (): Promise<void> => {
     try {
-      const response: AxiosResponse<any> | void = await this.sync.save(this.attributes.getAll());
+      const response: AxiosResponse | void = await this.sync.save(this.attributes.getAll());
       console.log('Axios Response: ', response);
+
       this.trigger('save');
     } catch (error) {
       console.log(error);
