@@ -1,5 +1,4 @@
 import { AxiosResponse } from 'axios';
-import { UserProps } from './User';
 
 interface ModelAtrributes<T> {
   get: <K extends keyof T>(key: K) => T[K];
@@ -17,6 +16,57 @@ interface Events {
   trigger: (eventName: string) => void;
 }
 
-class Model implements Events, ModelAtrributes<UserProps>, Sync<UserProps> {}
+interface HasId {
+  id?: number;
+}
+
+class Model<T extends HasId> {
+  constructor(private attributes: ModelAtrributes<T>, private events: Events, private sync: Sync<T>) {}
+
+  get on() {
+    return this.events.on;
+  }
+
+  get trigger() {
+    return this.events.trigger;
+  }
+
+  get get() {
+    return this.attributes.get;
+  }
+
+  set(update: T): void {
+    this.attributes.set(update);
+    this.events.trigger('change');
+  }
+
+  async fetch(): Promise<string> {
+    const id = this.attributes.get('id');
+    if (typeof id !== 'number') {
+      throw new Error('Cannot fetch without an ID');
+    }
+
+    const data = await this.sync.fetch(id);
+    console.log(data);
+
+    // @ts-ignore
+    this.set(data);
+
+    return new Promise((resolve, _reject) => {
+      resolve('Successful!');
+    });
+  }
+
+  save = async (): Promise<void> => {
+    try {
+      const response: AxiosResponse | void = await this.sync.save(this.attributes.getAll());
+      console.log('Axios Response: ', response);
+
+      this.trigger('save');
+    } catch (error) {
+      console.log(error);
+    }
+  };
+}
 
 export { Model };
