@@ -1,6 +1,7 @@
 import { Eventing } from './Eventing';
 import { Sync } from './Sync';
 import { Attributes } from './Attributes';
+import { AxiosResponse } from 'axios';
 
 interface UserProps {
   // ? operator defines an optional key-value
@@ -54,7 +55,15 @@ class User {
     });
   }
 
-  save = (): void => {};
+  save = async (): Promise<void> => {
+    try {
+      const response: AxiosResponse<any> | void = await this.sync.save(this.attributes.getAll());
+      console.log('Axios Response: ', response);
+      this.trigger('save');
+    } catch (error) {
+      console.log(error);
+    }
+  };
 }
 
 export { User, UserProps };
