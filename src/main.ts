@@ -15,4 +15,5 @@ user.trigger('save');
 */
 
 const user = new User({ name: 'new record', age: 0 });
-user.save();
+user.events.on('change', () => console.log('This is a change listener'));
+user.events.trigger('change');

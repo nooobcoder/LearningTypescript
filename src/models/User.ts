@@ -1,4 +1,5 @@
-import axios, { AxiosResponse } from 'axios';
+import { Eventing } from './Eventing';
+import { Sync } from './Sync';
 
 interface UserProps {
   // ? operator defines an optional key-value
@@ -7,10 +8,11 @@ interface UserProps {
   age?: number;
 }
 
-type Callback = () => void;
+const rootUrl = 'http://192.168.0.120:5000/users';
 
 class User {
-  events: { [key: string]: Callback[] } = {};
+  public events: Eventing = new Eventing();
+  public sync: Sync<UserProps> = new Sync<UserProps>(rootUrl);
 
   constructor(private data: UserProps) {}
 
@@ -22,42 +24,6 @@ class User {
     // @ts-ignore
     this.data = { ...update };
   }
-
-  on(eventName: string, callback: Callback): void {
-    const handlers = this.events[eventName] || [];
-    handlers.push(callback);
-    this.events[eventName] = handlers;
-  }
-
-  trigger(eventName: string): void {
-    const handlers = this.events[eventName];
-
-    if (!handlers || handlers.length === 0) {
-      console.warn(`${eventName} is an invalid event. Please check the event specs`);
-      return;
-    }
-
-    handlers.forEach((callback) => callback());
-  }
-
-  async fetch() {
-    try {
-      const response: AxiosResponse = await axios.get(`http://192.168.0.120:5000/users/${this.get('id')}`);
-      this.set(response.data);
-    } catch (e) {
-      console.error(e);
-    }
-  }
-
-  save(): void {
-    const id = this.get('id');
-
-    if (id) {
-      axios.put(`http://192.168.0.120:5000/users/${id}`, this.data);
-    } else {
-      axios.post(`http://192.168.0.120:5000/users/`, this.data);
-    }
-  }
 }
 
-export { User };
+export { User, UserProps };
