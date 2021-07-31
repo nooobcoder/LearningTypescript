@@ -11,7 +11,9 @@ abstract class View<T extends Model<K>, K> {
 
   eventsMap = (): { [key: string]: () => void } => ({});
 
-  regionsMap = (): { [key: string]: string } => ({});
+  regionsMap(): { [key: string]: string } {
+    return {};
+  }
 
   bindModel = (): void => {
     this.model.on('change', () => this.render());
@@ -40,6 +42,8 @@ abstract class View<T extends Model<K>, K> {
     }
   };
 
+  onRender(): void {}
+
   render = (): void => {
     this.parent.innerHTML = '';
     const templateElement = document.createElement('template');
@@ -47,6 +51,9 @@ abstract class View<T extends Model<K>, K> {
 
     this.bindEvents(templateElement.content);
     this.mapRegions(templateElement.content);
+
+    this.onRender();
+
     this.parent && this.parent.append(templateElement.content);
   };
 }
