@@ -1,7 +1,7 @@
 import { View } from './View';
-import { User } from '../models/User';
+import { User, UserProps } from '../models/User';
 
-class UserForm extends View<User> {
+class UserForm extends View<User, UserProps> {
   constructor(parent: HTMLElement, user: User) {
     super(parent, user);
   }

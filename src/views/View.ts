@@ -1,9 +1,7 @@
-interface ModelForView {
-  on(eventName: string, callback: () => void): void;
-}
+import { Model } from '../models/Model';
 
-abstract class View<T extends ModelForView> {
-  constructor(public parent: HTMLElement, public model: T) {
+abstract class View<T extends Model<K>, K> {
+  protected constructor(public parent: HTMLElement, public model: T) {
     this.bindModel();
   }
 
