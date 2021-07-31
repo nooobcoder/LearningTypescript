@@ -13,7 +13,7 @@ class UserForm {
   onSetNameClick = (): void => {
     const input: HTMLInputElement | null = this.parent.querySelector('input');
 
-    if (!!input) {
+    if (input) {
       const name = input.value;
       this.model.set({ name });
     }
