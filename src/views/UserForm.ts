@@ -1,17 +1,13 @@
-class UserForm {
-  constructor(public parent: HTMLElement) {}
+import { User } from '../models/User';
 
-  onButtonClick = (): void => console.log('Hi there');
-  onHeaderHover = (): void => console.log('You are now hovering over a header');
+class UserForm {
+  constructor(public parent: HTMLElement, public model: User) {}
+
+  onSetAgeClick = (): void => console.log('Button was clicked');
 
   eventsMap = (): { [key: string]: () => void } => ({
-    'click:button': this.onButtonClick,
-    'mouseenter:h1': this.onHeaderHover,
+    'click:.set-age': this.onSetAgeClick,
   });
-
-  template = (): string => {
-    return `<div><h1>User Form</h1><input type='text'/><button>Hi</button></div>`;
-  };
 
   bindEvents = (fragment: DocumentFragment): void => {
     const eventsMap = this.eventsMap();
@@ -23,6 +19,17 @@ class UserForm {
         .querySelectorAll(selector)
         .forEach((element) => element.addEventListener(eventName, eventsMap[eventKey]));
     }
+  };
+
+  template = (): string => {
+    return `<div><h1>User Form</h1>
+              <div>User name: ${this.model.get('name')}</div>
+              <div>User age: ${this.model.get('age')}</div>
+              <input type='text' />
+              <button>Hi</button>
+              <button class='set-age'>Set random age</button>
+            </div>
+          `;
   };
 
   render = (): void => {
