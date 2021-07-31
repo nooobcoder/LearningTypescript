@@ -1,15 +1,15 @@
-import { UserEdit } from './views/UserEdit';
-import { User } from './models/User';
+import { Collection } from './models/Collection';
+import { User, UserProps } from './models/User';
+import { UserList } from './views/UserList';
 
-const user: User = User.buildUser({ name: 'NAME', age: 20 });
+const users = new Collection('http://192.168.0.120:5000/users', (json: UserProps) => User.buildUser(json));
 
-const root = document.getElementById('root');
+users.on('change', () => {
+  const root = document.getElementById('root');
 
-if (root) {
-  const userEdit: UserEdit = new UserEdit(root as HTMLElement, user);
+  if (root) {
+    new UserList(root, users).render();
+  }
+});
 
-  userEdit.render();
-  console.log(userEdit);
-} else {
-  throw new Error('Root element not found');
-}
+users.fetch();

@@ -2,6 +2,10 @@ import { View } from './View';
 import { User, UserProps } from '../models/User';
 
 class UserShow extends View<User, UserProps> {
+  constructor(parent: HTMLElement, model: User) {
+    super(parent, model);
+  }
+
   template(): string {
     return `
             <div>
