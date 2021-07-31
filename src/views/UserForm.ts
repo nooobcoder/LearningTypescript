@@ -1,6 +1,11 @@
 import { View } from './View';
+import { User } from '../models/User';
 
-class UserForm extends View {
+class UserForm extends View<User> {
+  constructor(parent: HTMLElement, user: User) {
+    super(parent, user);
+  }
+
   onSetAgeClick = (): void => this.model.setRandomAge();
   onSetNameClick = (): void => {
     const input: HTMLInputElement | null = this.parent.querySelector('input');
