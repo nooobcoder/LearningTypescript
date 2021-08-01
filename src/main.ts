@@ -5,7 +5,7 @@ import cookieSession from 'cookie-session';
 const app = express();
 
 // Express 4.16+, express.urlencoded is the middleware to parse html bodies
-app.use(express.urlencoded());
+app.use(express.urlencoded({ extended: true }));
 app.use(cookieSession({ keys: ['verysecretkey'] }));
 app.use(router);
 
