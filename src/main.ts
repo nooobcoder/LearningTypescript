@@ -1,7 +1,7 @@
 class Boat {
   color: string = "red";
 
-  @logError
+  @logError("Something bad")
   pilot(): void {
     throw new Error();
     console.log("swoosh");
@@ -12,15 +12,20 @@ class Boat {
   }
 }
 
-function logError(_target: any, _key: string, propertyDescriptor: PropertyDescriptor): void {
-  const method = propertyDescriptor.value;
+// This wrap around is a decoratory factory
+function logError(errorMessage: string) {
 
-  propertyDescriptor.value = () => {
-    try {
-      method();
-    } catch (e) {
-      console.log("Oops the boat has sunk");
-    }
+  // This function is the actual decorator
+  return function(_target: any, _key: string, propertyDescriptor: PropertyDescriptor): void {
+    const method = propertyDescriptor.value;
+
+    propertyDescriptor.value = () => {
+      try {
+        method();
+      } catch (e) {
+        console.log(errorMessage);
+      }
+    };
   };
 }
 
