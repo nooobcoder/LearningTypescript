@@ -10,10 +10,6 @@ import { reducers } from './reducers';
 
 const store = createStore(reducers, applyMiddleware(thunk));
 
-interface AppProps {
-  color?: string;
-}
-
 ReactDOM.render(
   <Provider store={store}>
     <App />
