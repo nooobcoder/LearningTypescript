@@ -27,6 +27,6 @@ interface AppProps {
   }
 }*/
 
-const App: React.VoidFunctionComponent<AppProps> = ({ color }: AppProps): JSX.Element => <div>{color}</div>;
+const App: React.FunctionComponent<AppProps> = ({ color }: AppProps): JSX.Element => <div>{color}</div>;
 
 ReactDOM.render(<App color={'green'} />, document.getElementById('root'));
