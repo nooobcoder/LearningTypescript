@@ -1,0 +1,14 @@
+version: 2
+updates:
+  # Enable version updates for yarn
+  - package-ecosystem: 'yarn'
+    # Look for `package.json` and `lock` files in the `root` directory
+    directory: '/'
+    # Check the npm registry for updates every day (weekdays)
+    schedule:
+      interval: 'weekly'
+      # Check for yarn updates on Sundays
+      day: 'sunday'
+    commit-message:
+      # Prefix all commit messages with "npm"
+      prefix: '[DEPENDABOT] '
