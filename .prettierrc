@@ -1,8 +1,10 @@
 {
   "tabWidth": 2,
+  "useTabs": false,
   "printWidth": 120,
-  "proseWrap": "always",
+  "singleQuote": true,
+  "parser": "typescript",
   "semi": true,
-  "trailingComma": "es5",
-  "singleQuote": true
+  "endOfLine": "lf",
+  "trailingComma": "all"
 }
